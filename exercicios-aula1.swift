@@ -1,3 +1,5 @@
+import Foundation
+
 /*
 # Exercicio 1.1
 - Criar uma classe chamada Calculadora
@@ -80,10 +82,42 @@ extension Calculadora {
     func raizQuadrada(x:Double)->Double {
         return x.squareRoot()
     }
-
+    func potencia(_ x:Double, elevadoA:Double)->Double {
+        return pow(x,elevadoA)
+    }
+    func tangente(_ num:Double)->Double {
+        return tan(num)
+    }
+    func cosseno(_ num:Double)->Double {
+        return cos(num)
+    }
+    func seno(_ num:Double)->Double {
+        return sin(num)
+    }
 }
+
+let π = Double.pi
 
 var calc3 = Calculadora()
 print("\n>> Exercicio 1.2 <<")
-print("\nRaiz Quadrada de 81: " + "\(calc3.raizQuadrada(x:81))")
+print("\nRaiz de 81: " + "\(calc3.raizQuadrada(x:81))")
+print("2 ^ 3 = " + "\(calc3.potencia(2, elevadoA:3))")
+print("tangente pi/4 = " + "\(calc3.tangente(π/4))")
+print("cosseno pi = " + "\(calc3.cosseno(π))")
+print("seno pi/2 = " + "\(calc3.seno(π/2))")
 
+/*
+# Exercicio 2.1
+- Criar uma classe chamada "Retangulo"
+- Possuir as propriedades altura e largura
+- Construtor para inicializar as suas propriedades
+- Calcular área, perímetro e se um retângulo é maior, menor ou igual a outro
+*/
+
+
+/*
+# Exercicio 2.2
+- Criar um Protocol chamado "Imprimivel", que define o método "imprimir"
+- Alterar a classe "Retangulo" para implementa-lo
+- Para imprimir um objeto "Retangulo" no console, utilize os caracteres "-", linha horizontal, e "|", linha vertical
+*/
