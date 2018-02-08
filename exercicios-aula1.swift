@@ -114,6 +114,45 @@ print("seno pi/2 = " + "\(calc3.seno(π/2))")
 - Calcular área, perímetro e se um retângulo é maior, menor ou igual a outro
 */
 
+class Retangulo {
+    var altura:Double
+    var largura:Double
+    
+    init(altura:Double, largura:Double) {
+        self.altura = altura
+        self.largura = largura
+    }
+
+    func area()->Double {
+        return self.altura * self.largura
+    }
+    func perimetro()->Double {
+        return (2 * self.altura) + (2 * self.largura) 
+    }
+    func compara(_ retangulo:Retangulo)->String {
+        if(self.area() > retangulo.area()) {
+            return "Tenho area maior"
+        }
+        else if(self.area() < retangulo.area()) {
+            return "Tenho area menor"
+        }
+        else {
+            return "Temos area igual"
+        }
+    }
+}
+
+var retangulo = Retangulo(altura:3, largura:5)
+print("\n>> Exercicio 2.1 <<")
+print("\nArea(3x5): \(retangulo.area())")
+print("Perimetro(3x5): \(retangulo.perimetro())")
+
+var ret = Retangulo(altura:3, largura:3)
+print("Compara (3x5) versus (3x3): \(retangulo.compara(ret))")
+ret = Retangulo(altura:3, largura:6)
+print("Compara (3x5) versus (3x6): \(retangulo.compara(ret))")
+ret = Retangulo(altura:3, largura:5)
+print("Compara (3x5) versus (3x5): \(retangulo.compara(ret))")
 
 /*
 # Exercicio 2.2
@@ -121,3 +160,36 @@ print("seno pi/2 = " + "\(calc3.seno(π/2))")
 - Alterar a classe "Retangulo" para implementa-lo
 - Para imprimir um objeto "Retangulo" no console, utilize os caracteres "-", linha horizontal, e "|", linha vertical
 */
+
+protocol Imprimivel {
+    func imprimir()
+}
+
+class RetanguloImp: Imprimivel {
+    var altura:Int
+    var largura:Int
+    
+    init(altura:Int, largura:Int) {
+        self.altura = altura
+        self.largura = largura
+    }
+    func imprimir() {
+        for _ in stride(from: 1, to: self.largura, by: 1) {
+            print(" -", terminator:"")
+        }
+        print(" - ")
+        for _ in stride(from: 0, to: self.altura, by: 1) {
+            print("|", terminator:"")
+            for _ in stride(from: 0, to: self.largura, by: 1) {
+                print("  ", terminator:"")
+            }
+            print("|")
+        }
+        for _ in stride(from: 0, to: self.largura, by: 1) {
+            print(" -", terminator:"")
+        }
+    }
+}
+
+var retImp = RetanguloImp(altura:4, largura:4)
+retImp.imprimir()
